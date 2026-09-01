@@ -7,7 +7,7 @@ from .v4_helper_agent import HelperAgent
 from .v4_logging import log_event
 
 # Utilities (now importing our new, precise helpers)
-from versions.NAOMI_DCA.epe_helpers import (
+from .epe_helpers import (
     epe_permission_line, epe_decline_line, epe_append_elicit,
     sanitize_prompt_leakage, extract_epe_intent, strip_leading_code_tag
 )

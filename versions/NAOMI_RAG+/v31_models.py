@@ -88,7 +88,7 @@ def get_rag_context(raw_history):
 
 
 # Same underlying model for both stages
-BASE_MODEL = OllamaLLM(model="mi-llama-v7")
+BASE_MODEL = OllamaLLM(model="yermakhan/mi-llama-v7")
 
 
 def generate_draft_response(query, raw_history):
@@ -162,32 +162,32 @@ def call_v31(query, session_key, initial_history=None):
     history.add_user_message(query)
     history.add_ai_message(revised_response)
 
-    # Debug losg
-    with open("debug_rag_plus_output.txt", "a", encoding="utf-8") as f:
-        eastern_time = datetime.now(zoneinfo.ZoneInfo("America/New_York"))
-        timestamp = eastern_time.strftime("%Y-%m-%d %I:%M:%S %p %Z")
+    # Debug log
+    # with open("debug_rag_plus_output.txt", "a", encoding="utf-8") as f:
+    #     eastern_time = datetime.now(zoneinfo.ZoneInfo("America/New_York"))
+    #     timestamp = eastern_time.strftime("%Y-%m-%d %I:%M:%S %p %Z")
 
-        f.write(f"\n===== LOG ENTRY: {timestamp} =====\n")
+    #     f.write(f"\n===== LOG ENTRY: {timestamp} =====\n")
 
-        f.write("DRAFT PROMPT:\n")
-        f.write(draft_prompt)
+    #     f.write("DRAFT PROMPT:\n")
+    #     f.write(draft_prompt)
 
-        f.write("\n\nDRAFT RESPONSE:\n")
-        f.write(draft_response)
+    #     f.write("\n\nDRAFT RESPONSE:\n")
+    #     f.write(draft_response)
 
-        f.write("\n\nREVISOR PROMPT:\n")
-        f.write(revisor_prompt)
+    #     f.write("\n\nREVISOR PROMPT:\n")
+    #     f.write(revisor_prompt)
 
-        f.write("\n\nFINAL REVISED RESPONSE:\n")
-        f.write(revised_response)
+    #     f.write("\n\nFINAL REVISED RESPONSE:\n")
+    #     f.write(revised_response)
 
-        f.write("\n\n--- RAG CONTEXT TEXT ---\n")
-        f.write(context_text)
+    #     f.write("\n\n--- RAG CONTEXT TEXT ---\n")
+    #     f.write(context_text)
 
-        f.write("\n\n--- RETRIEVAL RESULTS ---\n")
-        f.write(results_text)
+    #     f.write("\n\n--- RETRIEVAL RESULTS ---\n")
+    #     f.write(results_text)
 
-        f.write("\n===========================\n\n")
+    #     f.write("\n===========================\n\n")
 
     return {
         "response": revised_response,

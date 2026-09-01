@@ -12,7 +12,7 @@ from .v4_safety import LlamaGuard3
 # Import utilities and constants
 from .v4_code_selector import select_next_code
 
-ENABLE_SAFETY = False  # Change to False to disable all LlamaGuard3 checks
+ENABLE_SAFETY = True  # Change to False to disable all LlamaGuard3 checks
 
 safety = LlamaGuard3() if ENABLE_SAFETY else None
 

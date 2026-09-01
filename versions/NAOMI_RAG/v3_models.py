@@ -86,7 +86,7 @@ def get_rag_context(raw_history):
 
 
 # Same fine-tuned backbone as NAOMI-FT
-V3_MODEL = OllamaLLM(model="mi-llama-v7")
+V3_MODEL = OllamaLLM(model="yermakhan/mi-llama-v7")
 
 
 def call_v3(query, session_key, initial_history=None):
@@ -124,22 +124,22 @@ def call_v3(query, session_key, initial_history=None):
     history.add_ai_message(response_text)
 
     # Debug logging
-    with open("debug_rag_output.txt", "a", encoding="utf-8") as f:
-        eastern_time = datetime.now(zoneinfo.ZoneInfo("America/New_York"))
-        timestamp = eastern_time.strftime("%Y-%m-%d %I:%M:%S %p %Z")
+    # with open("debug_rag_output.txt", "a", encoding="utf-8") as f:
+    #     eastern_time = datetime.now(zoneinfo.ZoneInfo("America/New_York"))
+    #     timestamp = eastern_time.strftime("%Y-%m-%d %I:%M:%S %p %Z")
 
-        f.write(f"\n===== LOG ENTRY: {timestamp} =====\n")
-        f.write("PROMPT SENT TO V3 MODEL:\n")
-        f.write(prompt)
+    #     f.write(f"\n===== LOG ENTRY: {timestamp} =====\n")
+    #     f.write("PROMPT SENT TO V3 MODEL:\n")
+    #     f.write(prompt)
 
-        f.write("\n\n--- MODEL RESPONSE ---\n")
-        f.write(response_text)
+    #     f.write("\n\n--- MODEL RESPONSE ---\n")
+    #     f.write(response_text)
 
-        f.write("\n\n--- RAG CONTEXT TEXT ---\n")
-        f.write(context_text)
+    #     f.write("\n\n--- RAG CONTEXT TEXT ---\n")
+    #     f.write(context_text)
 
-        f.write("\n\n--- RETRIEVAL RESULTS ---\n")
-        f.write(results_text)
-        f.write("\n===========================\n\n")
+    #     f.write("\n\n--- RETRIEVAL RESULTS ---\n")
+    #     f.write(results_text)
+    #     f.write("\n===========================\n\n")
 
     return {"response": response_text, "results": results_text}

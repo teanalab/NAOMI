@@ -45,7 +45,7 @@ prompt = ChatPromptTemplate.from_messages(
 
 # Fine-tuned NAOMI-FT model with paper-aligned system prompt
 V2_MODEL = ChatOllama(
-    model="mi-llama-v7",
+    model="yermakhan/mi-llama-v7",
     system=NAOMI_FT_PROMPT,
 )
 
