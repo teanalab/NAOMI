@@ -1,0 +1,76 @@
+# Ignore Python compiled files
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environments
+venv/
+.env/
+
+
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore temporary files
+*.tmp
+*.log
+
+# Ignore data files
+*.csv
+*.json
+*.png
+
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore build directories
+build/
+dist/
+
+
+# Ignore IDE/editor settings
+.vscode/
+.idea/
+
+# Ignore  directories
+data/
+faiss_db/
+instance/
+models/
+ssl-back/
+database/
+test_transcripts/
+v4_transcripts/
+extra_files/
+
+# Ignore test directories
+TEST/
+
+# Ignore sensitive databases and certificates
+database/
+/OLD_CODE/
+
+
+# Ignore Logs
+logs/
+app.log
+v4_logs.log
+
+
+# FURTHER FILES TO IGNORE
+*.jsonl
+
+# Session transcripts 
+ablations/DCA_transcripts/
+ablations/v4_transcripts_w_code/
+ablations/prompt_dataset/
+transcripts/
+ablations/x_*.py
+
+# Scaffolding, not release material
+inspect_repo.py
+repo_digest.md
+
+# Exception: GRU vocab is needed at inference time
+!versions/NAOMI_DCA/gru_module/*.json
